@@ -22,6 +22,8 @@ public class Word {
     private String option3;
     @Column(name = "QUESTION")
     private String question;
+    @Column(name = "TRANSLATION")
+    private String translation;
 
 
     public Word() {
@@ -81,5 +83,13 @@ public class Word {
 
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+    public String getTranslation() {
+        return translation;
+    }
+
+    public void setTranslation(String translation) {
+        this.translation = translation;
     }
 }

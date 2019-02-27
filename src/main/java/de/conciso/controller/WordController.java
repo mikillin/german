@@ -30,6 +30,8 @@ public class WordController {
     @ResponseBody
     @RequestMapping(value = "/addNewWordItem")
     public void addNewHistoryItem(@RequestBody Word word) {
+        System.out.printf("new word:" + word);
+        System.out.printf("new word.description:" + word.getDescription());
         wordService.createWord(word);
     }
 

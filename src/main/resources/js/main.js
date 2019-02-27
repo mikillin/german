@@ -6,12 +6,14 @@ var correctAnswer = "";
 
 
 class Word {
-    constructor(description, lng, lat, zoom) {
+    constructor(description, question, option1, option2, option3, translation, correct) {
         this.description = description;
-        this.question = lng;
-        this.firstAnswer = lat;
-        this.secondAnswer = zoom;
-        this.thirdAnswer = zoom;
+        this.question = question;
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+        this.translation = translation;
+        this.correct = correct;
     }
 }
 
@@ -20,7 +22,15 @@ $(document).ready(function () {
     console.log("ready!");
     updateStoredData();
 
+    $("#saveNewItem").click(function(){
+        console.log("saveNewItem clicked");
+        saveRule();
+    })
+
+
 });
+
+
 
 $(document).keyup(function (event) {
      //37, 38, 39
@@ -90,6 +100,30 @@ function go() {
     }
 }
 */
+
+function saveRule(){
+
+    console.log("clicked saveRule");
+    word = new Word(
+    $("#description_add").val(),
+    $("#question_add").val(),
+    $("#firstAnswer_add").val(),
+    $("#secondAnswer_add").val(),
+    $("#thirdAnswer_add").val(),
+    $("#translation_add").val(),
+    $("#correct_add").val())
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/addNewWordItem",
+        data: JSON.stringify(word, null, 2),
+
+        error: function (e) {
+            console.log("DB ERROR: ", e);
+        }
+    });
+}
 function updateStoredData() {
 
     //for test delete all cookie
@@ -128,6 +162,7 @@ function fillHistorySelect(HistoryItemsArray) {
         $("#secondAnswer").val(HistoryItemsArray[i].option2);
         $("#thirdAnswer").val(HistoryItemsArray[i].option3);
         $("#question").val(HistoryItemsArray[i].question);
+        $("#translation").val(HistoryItemsArray[i].translation);
         correctAnswer = HistoryItemsArray[i].correct;
         //ectHistory.add(newOption, selectHistory[1]);
     }

@@ -5,7 +5,7 @@
 <html>
 <head>
     <title>
-       Learn Words
+        Learn Words
     </title>
 
     <!-- meta -->
@@ -27,19 +27,23 @@
 
     <div class="main-window">
 
-
-        <input type = "text" id ="description" readonly class="item-description">
-        <input type = "button" id="question" value = "Question">
-
-
-        <input type = "button" id= "firstAnswer" value = "First Answer">
-
-        <input type = "button" id= "secondAnswer" value = "Second Answer">
-
-        <input type = "button" id= "thirdAnswer"  value = "Third Answer">
+        <div><input type="text" id="description" readonly class="item-description"></div>
+        <div><input type="button" id="question" value="Question">
+            <input type="button" id="firstAnswer" value="First Answer">
+            <input type="button" id="secondAnswer" value="Second Answer"></div>
+        <div><input type="button" id="thirdAnswer" value="Third Answer"></div>
 
     </div>
-
+    <div>
+        <div><input type="text" id="description_add" placeholder="description"></div>
+        <div><input type="text" id="question_add" placeholder="question"></div>
+        <div><input type="text" id="firstAnswer_add" placeholder="firstAnswer"></div>
+        <div><input type="text" id="secondAnswer_add" placeholder="secondAnswer"></div>
+        <div><input type="text" id="thirdAnswer_add" placeholder="thirdAnswer"></div>
+        <div><input type="text" id="translation_add" placeholder="translation"></div>
+        <div><input type="text" id="correct_add" placeholder="correct"></div>
+        <div><input type="button" id="saveNewItem" value = "Add new item"></div>
+    </div>
 </div>
 
 
